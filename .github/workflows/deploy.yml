@@ -1,0 +1,28 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Deploy → tetapi.dev
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/tetapi_ed25519
+          chmod 600 ~/.ssh/tetapi_ed25519
+          ssh-keyscan -H 164.90.235.66 >> ~/.ssh/known_hosts
+
+      - name: Sync landing page
+        run: |
+          ssh -i ~/.ssh/tetapi_ed25519 root@164.90.235.66 \
+            "mkdir -p /var/www/teta-pi"
+          rsync -az -e "ssh -i ~/.ssh/tetapi_ed25519" \
+            --delete --exclude='.git' \
+            ./ root@164.90.235.66:/var/www/teta-pi/

@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — TETA+PI</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="description" content="Privacy policy for TETA+PI — a research lab based in Frankfurt. GDPR-compliant data processing.">
 <link rel="canonical" href="https://tetapi.dev/privacy.html">
 <meta name="robots" content="noindex">
@@ -12,10 +15,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 html,body{margin:0;padding:0;background:linear-gradient(180deg,#EEF2FC 0%,#FBFAF4 45%,#EDF1FB 100%);background-attachment:fixed}
-body{-webkit-font-smoothing:antialiased;font-family:'Manrope','Trebuchet MS','Segoe UI',sans-serif;color:#1A1035}
+body{-webkit-font-smoothing:antialiased;font-family:'Manrope','Trebuchet MS','Segoe UI',sans-serif;color:#1A1035;padding-top:var(--banner-h,40px)}
 *,*::before,*::after{box-sizing:border-box}
 a{color:#5B45C9;text-decoration:none}
-.nav{position:sticky;top:18px;z-index:40;margin:18px auto 0;max-width:1120px;padding:0 20px}
+.nav{position:sticky;top:calc(var(--banner-h,40px) + 18px);z-index:40;margin:18px auto 0;max-width:1120px;padding:0 20px}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:11px 12px 11px 22px;border-radius:22px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);box-shadow:0 8px 30px rgba(45,55,120,.10),inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%)}
 .nav-logo{display:flex;align-items:baseline;gap:6px;text-decoration:none;color:inherit}
 .nav-logo .theta{font-size:21px;font-weight:600;color:#5B45C9;line-height:1}
@@ -29,7 +32,7 @@ a{color:#5B45C9;text-decoration:none}
 .mobile-menu{display:none;position:fixed;inset:0;z-index:49;background:rgba(238,242,252,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:34px}
 .mobile-menu.open{display:flex}
 .mobile-menu a{font-size:22px;font-weight:600;color:#1A1035;text-decoration:none}
-.mobile-menu .close-btn{position:absolute;top:24px;right:24px;font-size:28px;color:#1A1035;background:none;border:none;cursor:pointer}
+.mobile-menu .close-btn{position:absolute;top:calc(var(--banner-h,40px) + 24px);right:24px;font-size:28px;color:#1A1035;background:none;border:none;cursor:pointer}
 .prose{max-width:760px;margin:0 auto;padding:80px 32px 96px}
 .prose h1{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.03em;margin:0 0 8px;line-height:1.1}
 .prose .meta{font-size:13.5px;color:#9088B0;margin:0 0 56px}
@@ -49,7 +52,8 @@ a{color:#5B45C9;text-decoration:none}
 </style>
 </head>
 <body>
-<div style="position:relative;z-index:50;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 16px;background:#FFD60A;color:#1A1035;font-size:13px;font-weight:700;letter-spacing:.02em;text-align:center">🚧 Project under construction — we are building in public. Features ship daily.</div>
+<div id="uc-banner" style="position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 16px;background:#FFD60A;color:#1A1035;font-size:13px;font-weight:700;letter-spacing:.02em;text-align:center">🚧 Project under construction — we are building in public. Features ship daily.</div>
+<script>(function(){var b=document.getElementById('uc-banner');function fit(){document.documentElement.style.setProperty('--banner-h',b.offsetHeight+'px')}fit();window.addEventListener('resize',fit)})()</script>
 
 <div style="position:relative;z-index:1">
 

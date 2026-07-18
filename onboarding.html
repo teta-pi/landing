@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Get Verified — TETA+PI</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <meta name="description" content="Apply to get verified on TETA+PI. Businesses, journalists, and artists — free setup. Your verified profile becomes discoverable by AI agents via MCP.">
   <link rel="canonical" href="https://tetapi.dev/onboarding.html">
   <meta name="robots" content="index, follow">
@@ -20,7 +23,7 @@
 
     /* Nav */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      position: fixed; top: var(--banner-h,40px); left: 0; right: 0; z-index: 50;
       background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
       border-bottom: 1px solid #E2DCF0;
     }
@@ -38,7 +41,7 @@
     /* Page */
     main {
       min-height: 100vh;
-      padding: 120px 28px 80px;
+      padding: calc(120px + var(--banner-h,40px)) 28px 80px;
       max-width: 680px;
       margin: 0 auto;
     }
@@ -151,7 +154,8 @@
   </style>
 </head>
 <body>
-<div style="position:relative;z-index:50;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 16px;background:#FFD60A;color:#1A1035;font-size:13px;font-weight:700;letter-spacing:.02em;text-align:center">🚧 Project under construction — we are building in public. Features ship daily.</div>
+<div id="uc-banner" style="position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 16px;background:#FFD60A;color:#1A1035;font-size:13px;font-weight:700;letter-spacing:.02em;text-align:center">🚧 Project under construction — we are building in public. Features ship daily.</div>
+<script>(function(){var b=document.getElementById('uc-banner');function fit(){document.documentElement.style.setProperty('--banner-h',b.offsetHeight+'px')}fit();window.addEventListener('resize',fit)})()</script>
 
   <nav>
     <div class="nav-inner">

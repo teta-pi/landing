@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get your Universal Tag — TETA+PI</title>
+  <meta name="description" content="Generate your TETA+PI Universal Tag — one script tag that makes your site readable by AI agents. No CMS, no plugin, works on any website.">
+  <link rel="canonical" href="https://tetapi.dev/generate.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tetapi.dev/generate.html">
+  <meta property="og:title" content="Get your Universal Tag — TETA+PI">
+  <meta property="og:description" content="One script tag. Structured data for AI agents on any website — static, custom-coded, no CMS required.">
+  <meta property="og:site_name" content="TETA+PI">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #ffffff; scroll-behavior: smooth; }
+    body { -webkit-font-smoothing: antialiased; font-family: 'Trebuchet MS','Segoe UI','Helvetica Neue',sans-serif; color: #1A1035; }
+    ::selection { background: rgba(107,63,160,0.16); }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid #E2DCF0;
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto; padding: 0 28px;
+      height: 60px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { display: flex; align-items: baseline; gap: 6px; text-decoration: none; user-select: none; }
+    .logo-t { font-size: 21px; font-weight: 600; color: #6B3FA0; line-height: 1; letter-spacing: -0.5px; }
+    .logo-plus { font-size: 15px; font-weight: 300; color: #1A1035; line-height: 1; }
+    .logo-pi { font-size: 19px; font-weight: 600; color: #E8640C; line-height: 1; }
+    .nav-back { font-size: 14px; color: #4A3F6B; text-decoration: none; }
+    .nav-back:hover { color: #6B3FA0; }
+
+    main { max-width: 720px; margin: 0 auto; padding: 120px 28px 80px; }
+
+    .badge { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #6B3FA0; margin-bottom: 22px; }
+    h1 { font-size: clamp(32px, 5vw, 50px); font-weight: 700; letter-spacing: -1.5px; line-height: 1.07; color: #1A1035; margin: 0 0 20px; }
+    .sub { font-size: 17px; color: #4A3F6B; line-height: 1.6; margin: 0 0 48px; max-width: 560px; }
+
+    /* Step label */
+    .step-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #6B3FA0; margin: 0 0 14px; }
+    h2 { font-size: clamp(20px, 3vw, 26px); font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; color: #1A1035; margin: 0 0 12px; }
+    .h2-sub { font-size: 15px; color: #4A3F6B; line-height: 1.6; margin: 0 0 24px; }
+
+    /* Form */
+    .field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
+    label { font-size: 13px; font-weight: 600; color: #1A1035; letter-spacing: 0.2px; }
+    label span { color: #9088B0; font-weight: 400; }
+    input {
+      font-family: inherit; font-size: 15px; color: #1A1035;
+      background: #ffffff; border: 1px solid #C9B8E8;
+      border-radius: 4px; padding: 12px 14px;
+      transition: border-color .15s ease, box-shadow .15s ease;
+      outline: none; width: 100%; -webkit-appearance: none;
+    }
+    input:focus { border-color: #6B3FA0; box-shadow: 0 0 0 3px rgba(107,63,160,0.1); }
+    .note { font-size: 12.5px; color: #9088B0; line-height: 1.6; margin: 8px 0 0; }
+    .note a { color: #6B3FA0; }
+
+    /* Code block */
+    .code-block { background: #1A1035; border-radius: 6px; overflow: hidden; margin: 0 0 16px; }
+    .code-header {
+      padding: 12px 18px; border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    }
+    .code-filename { font-family: ui-monospace,'SF Mono','Menlo',monospace; font-size: 11px; color: rgba(255,255,255,0.3); }
+    .copy-btn {
+      font-family: inherit; font-size: 12px; font-weight: 600; color: #C9B8E8;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px; padding: 5px 12px; cursor: pointer;
+      transition: background .15s ease, color .15s ease;
+    }
+    .copy-btn:hover { background: rgba(255,255,255,0.12); color: #ffffff; }
+    .copy-btn.copied { color: #4ADE80; border-color: rgba(74,222,128,0.3); }
+    pre {
+      margin: 0; padding: 20px 18px; font-family: ui-monospace,'SF Mono','Menlo',monospace;
+      font-size: 13px; line-height: 1.7; overflow-x: auto; color: #C9B8E8; white-space: pre-wrap; word-break: break-all;
+    }
+    pre .c-s { color: #A8D4FF; }
+
+    /* Disclosure banner */
+    .disclosure {
+      display: flex; gap: 14px; padding: 20px 22px; margin: 0 0 56px;
+      border: 1px solid #E2DCF0; border-left: 2px solid #E8640C;
+      background: rgba(232,100,12,0.03);
+    }
+    .disclosure-icon { font-size: 18px; flex: none; }
+    .disclosure p { font-size: 14px; color: #4A3F6B; line-height: 1.6; margin: 0; }
+    .disclosure strong { color: #1A1035; }
+
+    /* Part B */
+    .partb-steps { display: flex; flex-direction: column; gap: 0; border: 1px solid #E2DCF0; margin-bottom: 20px; }
+    .partb-step { display: flex; gap: 16px; padding: 18px 20px; border-bottom: 1px solid #E2DCF0; }
+    .partb-step:last-child { border-bottom: none; }
+    .partb-num {
+      flex: none; width: 24px; height: 24px; border-radius: 50%;
+      background: rgba(107,63,160,0.1); color: #6B3FA0;
+      font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+    }
+    .partb-step h3 { font-size: 14.5px; font-weight: 600; color: #1A1035; margin: 0 0 4px; }
+    .partb-step p { font-size: 13.5px; color: #4A3F6B; line-height: 1.55; margin: 0; }
+    .partb-step code { font-family: ui-monospace,'SF Mono','Menlo',monospace; font-size: 12.5px; background: #F2EDF9; padding: 2px 6px; border-radius: 3px; }
+
+    .host-links { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+    .host-note { margin-bottom: 60px; }
+    .host-link {
+      font-size: 13px; color: #6B3FA0; text-decoration: none;
+      border: 1px solid #E2DCF0; border-radius: 4px; padding: 8px 14px;
+      transition: border-color .15s ease, background .15s ease;
+    }
+    .host-link:hover { border-color: #C9B8E8; background: rgba(107,63,160,0.025); }
+
+    .divider { height: 1px; background: #E2DCF0; margin: 0 0 40px; }
+
+    footer { border-top: 1px solid #E2DCF0; padding: 40px 28px; }
+    .footer-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-copy { font-size: 12.5px; color: #9088B0; }
+    .footer-mono { font-family: ui-monospace,'SF Mono','Menlo',monospace; font-size: 11px; color: #9088B0; letter-spacing: 0.4px; }
+  </style>
+</head>
+<body>
+<div style="position:relative;z-index:50;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 16px;background:#FFD60A;color:#1A1035;font-size:13px;font-weight:700;letter-spacing:.02em;text-align:center">🚧 Project under construction — we are building in public. Features ship daily.</div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-t">Θ</span>
+        <span class="logo-plus">+</span>
+        <span class="logo-pi">π</span>
+      </a>
+      <a href="index.html" class="nav-back">← Back to main page</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="badge">Universal Tag</div>
+    <h1>Make your site readable by AI agents.</h1>
+    <p class="sub">No CMS, no plugin, no code changes to your pages beyond one script tag. Works on static sites, custom-coded sites, anything that runs no WordPress.</p>
+
+    <!-- Part A: script tag -->
+    <div class="step-label">Part A</div>
+    <h2>Paste one script tag</h2>
+    <p class="h2-sub">Enter your TETA+PI entity ID — find it on your entity's dashboard under Settings, or in the URL of your profile page (<code style="font-family:monospace;background:#F2EDF9;padding:1px 6px;border-radius:3px;">app.tetapi.dev/entities/<b>YOUR_ID</b></code>). Don't have one yet? <a href="onboarding.html" style="color:#6B3FA0;">Register your entity first</a>.</p>
+
+    <div class="field">
+      <label for="entity-id">Entity ID</label>
+      <input type="text" id="entity-id" placeholder="e.g. a7f3b9c2-4e21-4a10-9c3d-8b1f2e0a5d6c">
+      <p class="note">This is your entity's public ID — it is not a secret and is safe to publish on your site.</p>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <span class="code-filename">add to &lt;head&gt;</span>
+        <button class="copy-btn" id="copy-btn">Copy</button>
+      </div>
+      <pre id="snippet">&lt;script async src=<span class="c-s">"https://tetapi.dev/tag.js"</span> data-entity=<span class="c-s">"YOUR_ENTITY_ID"</span>&gt;&lt;/script&gt;</pre>
+    </div>
+    <p class="note">This script injects schema.org structured data (JSON-LD) describing your entity and sends one lightweight indexing beacon per page load. No cookies, no cross-site tracking, no persistent identifiers — deliberately less than a typical analytics script.</p>
+
+    <div class="divider" style="margin-top:44px;"></div>
+
+    <div class="disclosure">
+      <span class="disclosure-icon">⚠️</span>
+      <p><strong>Part A alone is a partial signal.</strong> A script tag can inject structured data into the page for agents that execute JavaScript, but it cannot create files at your domain's <code style="font-family:monospace;">/.well-known/</code> root — that needs server-level access, which a client-side script never has. Agents that fetch <code style="font-family:monospace;">/.well-known/agent.json</code> directly (many do, without running JS) won't see anything until you complete Part B below. For full agent-readability, do both.</p>
+    </div>
+
+    <!-- Part B -->
+    <div class="step-label">Part B — optional, ~5 minutes</div>
+    <h2>Add one DNS record</h2>
+    <p class="h2-sub">This proves domain ownership and lets TETA+PI serve real <code style="font-family:monospace;background:#F2EDF9;padding:1px 6px;border-radius:3px;">/.well-known/agent.json</code>, <code style="font-family:monospace;background:#F2EDF9;padding:1px 6px;border-radius:3px;">agent-card.json</code>, and <code style="font-family:monospace;background:#F2EDF9;padding:1px 6px;border-radius:3px;">llms.txt</code> from your domain root — reachable by every agent, not only ones that run JavaScript.</p>
+
+    <div class="partb-steps">
+      <div class="partb-step">
+        <div class="partb-num">1</div>
+        <div>
+          <h3>Add a DNS record</h3>
+          <p>CNAME <code>_ttpi-agent.yourdomain.com</code> → <code>verify.tetapi.dev</code>, or if your DNS provider doesn't support CNAME at that label, a TXT record: <code>yourdomain.com "ttpi-verify=YOUR_ENTITY_ID"</code>.</p>
+        </div>
+      </div>
+      <div class="partb-step">
+        <div class="partb-num">2</div>
+        <div>
+          <h3>Add a redirect rule at your host</h3>
+          <p>One line routing <code>/.well-known/*</code> to TETA+PI's proxy. Exact syntax depends on your host — see the links below for Vercel, Netlify, Cloudflare Pages, Apache, and Nginx.</p>
+        </div>
+      </div>
+      <div class="partb-step">
+        <div class="partb-num">3</div>
+        <div>
+          <h3>We verify automatically</h3>
+          <p>Once the DNS record is live, TETA+PI detects it within ~30 minutes and verifies your entity via Domain Ownership — the same method used elsewhere on the platform. No separate approval step.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="host-links">
+      <span class="host-link" style="cursor:default; color:#9088B0;">Vercel (vercel.json)</span>
+      <span class="host-link" style="cursor:default; color:#9088B0;">Netlify (_redirects)</span>
+      <span class="host-link" style="cursor:default; color:#9088B0;">Cloudflare Pages</span>
+      <span class="host-link" style="cursor:default; color:#9088B0;">Apache (.htaccess)</span>
+      <span class="host-link" style="cursor:default; color:#9088B0;">Nginx</span>
+    </div>
+    <p class="note host-note">Step-by-step instructions per host are coming soon. In the meantime, write to <a href="mailto:hello@teta-pi.io">hello@teta-pi.io</a> and we'll walk you through it.</p>
+
+    <div class="divider"></div>
+    <p class="note" style="font-size:13.5px; color:#4A3F6B;">Questions? Write to <a href="mailto:hello@teta-pi.io" style="color:#6B3FA0; text-decoration:none;">hello@teta-pi.io</a> — we read every message.</p>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-copy">© 2026 TETA+PI · Open Protocol · MIT License</div>
+      <div class="footer-mono">#c2pa:verify · btc:ts:verified · θ+π:protocol:v1</div>
+    </div>
+  </footer>
+
+  <script>
+    var input = document.getElementById('entity-id');
+    var snippet = document.getElementById('snippet');
+    var copyBtn = document.getElementById('copy-btn');
+
+    function currentSnippetText() {
+      var id = input.value.trim() || 'YOUR_ENTITY_ID';
+      return '<script async src="https://tetapi.dev/tag.js" data-entity="' + id + '"><' + '/script>';
+    }
+
+    function render() {
+      var id = input.value.trim() || 'YOUR_ENTITY_ID';
+      snippet.innerHTML = '&lt;script async src=<span class="c-s">"https://tetapi.dev/tag.js"</span> data-entity=<span class="c-s">"' +
+        id.replace(/[<>&"]/g, function (c) { return { '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]; }) +
+        '"</span>&gt;&lt;/script&gt;';
+    }
+
+    input.addEventListener('input', render);
+
+    copyBtn.addEventListener('click', function () {
+      var text = currentSnippetText();
+      navigator.clipboard.writeText(text).then(function () {
+        copyBtn.textContent = 'Copied ✓';
+        copyBtn.classList.add('copied');
+        setTimeout(function () {
+          copyBtn.textContent = 'Copy';
+          copyBtn.classList.remove('copied');
+        }, 1800);
+      }).catch(function () {});
+    });
+  </script>
+<script data-goatcounter="https://stats.tetapi.dev/count" async src="https://stats.tetapi.dev/count.js"></script>
+</body>
+</html>

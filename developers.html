@@ -211,6 +211,14 @@
         <div class="tool-name">teta_get_proof</div>
         <div class="tool-desc">Raw cryptographic proof chain — registry hash, C2PA manifests, Bitcoin OTS. Machine-verifiable.</div>
       </div>
+      <div class="tool-row">
+        <div class="tool-name">teta_resolve_intent</div>
+        <div class="tool-desc">TWIRA-ranked intent routing with full T/I/P breakdown. Filters by entity type and minimum trust.</div>
+      </div>
+      <div class="tool-row">
+        <div class="tool-name">teta_get_profile</div>
+        <div class="tool-desc">Full public profile with public blocks for a verified entity.</div>
+      </div>
     </div>
   </div>
 
@@ -220,38 +228,42 @@
   <div class="section" id="api">
     <div class="section-label">REST API</div>
     <h2>Direct HTTP endpoints.</h2>
-    <p class="section-sub">Base URL: <code style="font-family:monospace;background:#F2EDF9;padding:2px 8px;border-radius:3px;font-size:14px;">https://api.tetapi.dev/v1</code> — Bearer token from your account settings.</p>
+    <p class="section-sub">Base URL: <code style="font-family:monospace;background:#F2EDF9;padding:2px 8px;border-radius:3px;font-size:14px;">https://api.tetapi.dev/api/v1</code> — Bearer token from your account settings. Full schema at <a href="https://api.tetapi.dev/docs" target="_blank" rel="noopener" style="color:#6B3FA0;">api.tetapi.dev/docs</a>.</p>
 
     <div style="border:1px solid #E2DCF0; margin-bottom:36px;">
-      <div class="endpoint"><span class="method">GET</span><span class="path">/entities/search?q=&type=&country=&level=</span><span class="ep-desc">Search entities</span></div>
-      <div class="endpoint"><span class="method">GET</span><span class="path">/entities/{id}</span><span class="ep-desc">Full profile</span></div>
-      <div class="endpoint"><span class="method">GET</span><span class="path">/entities/{id}/proof</span><span class="ep-desc">Cryptographic proof</span></div>
-      <div class="endpoint"><span class="method">POST</span><span class="path">/entities/{id}/verify-claim</span><span class="ep-desc">Verify a claim</span></div>
-      <div class="endpoint"><span class="method">POST</span><span class="path">/endpoints/verify</span><span class="ep-desc">Verify agent endpoint</span></div>
+      <div class="endpoint"><span class="method">GET</span><span class="path">/search?q=&entity_type=&country=&level=</span><span class="ep-desc">Search entities</span></div>
+      <div class="endpoint"><span class="method">GET</span><span class="path">/businesses/{id}</span><span class="ep-desc">Full profile</span></div>
+      <div class="endpoint"><span class="method">GET</span><span class="path">/businesses/{id}/proof</span><span class="ep-desc">Cryptographic proof</span></div>
+      <div class="endpoint"><span class="method">POST</span><span class="path">/resolve-intent</span><span class="ep-desc">Resolve intent → ranked entities</span></div>
+      <div class="endpoint"><span class="method">POST</span><span class="path">/verify-endpoint</span><span class="ep-desc">Verify agent endpoint</span></div>
     </div>
 
     <div class="code-block">
       <div class="code-header">
         <div class="code-dot" style="background:#6B3FA0;"></div>
-        <span class="code-filename">example — search + verify</span>
+        <span class="code-filename">example — search + proof</span>
       </div>
       <pre><span class="c-cm"># Search for a verified entity</span>
-curl https://api.tetapi.dev/v1/entities/search \
+curl https://api.tetapi.dev/api/v1/search \
   -H <span class="c-s">"Authorization: Bearer $TETA_API_KEY"</span> \
   -G --data-urlencode <span class="c-s">"q=organic bakery Berlin"</span> \
-     --data-urlencode <span class="c-s">"level=full"</span>
+     --data-urlencode <span class="c-s">"level=any"</span>
 
 <span class="c-cm"># Response</span>
-{
-  <span class="c-k">"results"</span>: [{
-    <span class="c-k">"id"</span>:                 <span class="c-s">"a7f3b9c2-..."</span>,
-    <span class="c-k">"name"</span>:               <span class="c-s">"GreenFarm GmbH"</span>,
-    <span class="c-k">"verification_level"</span>: <span class="c-g">"full"</span>,
-    <span class="c-k">"entity_type"</span>:        <span class="c-s">"business"</span>,
-    <span class="c-k">"country"</span>:            <span class="c-s">"DE"</span>,
-    <span class="c-k">"agent_endpoint"</span>:     <span class="c-s">"https://agents.greenfarm.de"</span>
-  }]
-}</pre>
+[{
+  <span class="c-k">"id"</span>:                 <span class="c-s">"a7f3b9c2-...-...-...-............"</span>,
+  <span class="c-k">"name"</span>:               <span class="c-s">"GreenFarm GmbH"</span>,
+  <span class="c-k">"slug"</span>:               <span class="c-s">"greenfarm-gmbh"</span>,
+  <span class="c-k">"entity_type"</span>:        <span class="c-s">"business"</span>,
+  <span class="c-k">"verification_level"</span>: <span class="c-g">"registry"</span>,
+  <span class="c-k">"country"</span>:            <span class="c-s">"DE"</span>,
+  <span class="c-k">"block_count"</span>:        <span class="c-o">4</span>,
+  <span class="c-k">"agent_endpoint"</span>:     <span class="c-s">"https://agents.greenfarm.de"</span>
+}]
+
+<span class="c-cm"># Fetch its cryptographic proof</span>
+curl https://api.tetapi.dev/api/v1/businesses/a7f3b9c2-.../proof \
+  -H <span class="c-s">"Authorization: Bearer $TETA_API_KEY"</span></pre>
     </div>
   </div>
 

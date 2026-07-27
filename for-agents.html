@@ -144,7 +144,7 @@ a{color:inherit;text-decoration:none}
     <div style="color:#C9B8E8">}</div>
     <div style="height:1px;background:rgba(255,255,255,.08);margin:20px 0"></div>
     <div style="color:#9088B0">// Or via REST</div>
-    <div style="color:#7FE3A4">GET https://api.tetapi.dev/api/v1/search?q=GreenFarm+GmbH&verified=true</div>
+    <div style="color:#7FE3A4">GET https://api.tetapi.dev/api/v1/search?q=GreenFarm+GmbH&level=full</div>
   </div>
 </section>
 
@@ -152,7 +152,7 @@ a{color:inherit;text-decoration:none}
 <section class="section" style="padding-top:0">
   <div data-reveal style="margin-bottom:32px">
     <div class="eyebrow">Available tools</div>
-    <h2 style="font-size:clamp(20px,2.5vw,28px);font-weight:700;letter-spacing:-.02em;margin:0">4 MCP tools, ready to use</h2>
+    <h2 style="font-size:clamp(20px,2.5vw,28px);font-weight:700;letter-spacing:-.02em;margin:0">7 MCP tools, ready to use</h2>
   </div>
   <div class="grid-2" style="gap:14px">
     <div class="tool-card" data-reveal>
@@ -170,6 +170,18 @@ a{color:inherit;text-decoration:none}
     <div class="tool-card" data-reveal>
       <div style="font-family:ui-monospace,monospace;font-size:13px;font-weight:600;color:#5B45C9;margin-bottom:10px">teta_get_proof</div>
       <div style="font-size:14px;color:#5A4F78;line-height:1.6">Get cryptographic proof for a verification. Returns Bitcoin timestamp, C2PA manifest, and registry attestation.</div>
+    </div>
+    <div class="tool-card" data-reveal>
+      <div style="font-family:ui-monospace,monospace;font-size:13px;font-weight:600;color:#5B45C9;margin-bottom:10px">teta_resolve_intent</div>
+      <div style="font-size:14px;color:#5A4F78;line-height:1.6">TWIRA-ranked intent routing with full T/I/P breakdown. Filters by entity type and minimum trust.</div>
+    </div>
+    <div class="tool-card" data-reveal>
+      <div style="font-family:ui-monospace,monospace;font-size:13px;font-weight:600;color:#5B45C9;margin-bottom:10px">teta_get_profile</div>
+      <div style="font-size:14px;color:#5A4F78;line-height:1.6">Fetch the full public profile with public blocks for a verified entity.</div>
+    </div>
+    <div class="tool-card" data-reveal>
+      <div style="font-family:ui-monospace,monospace;font-size:13px;font-weight:600;color:#5B45C9;margin-bottom:10px">teta_verify_claim</div>
+      <div style="font-size:14px;color:#5A4F78;line-height:1.6">Check whether a claim about an entity is supported by its verified content blocks.</div>
     </div>
   </div>
 </section>

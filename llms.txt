@@ -19,14 +19,17 @@ C2PA content signing, and Bitcoin timestamping — then become discoverable by A
 
 MCP endpoint: https://mcp.tetapi.dev
 API endpoint: https://api.tetapi.dev/api/v1
-Agent manifest: https://app.tetapi.dev/.well-known/agent.json
+Agent manifest: https://tetapi.dev/.well-known/agent.json
 API docs: https://api.tetapi.dev/docs
 
 ### Available MCP tools
 - teta_search — search verified entities by name, domain, or registry ID
-- teta_verify_entity — verify a specific entity and return trust level
+- teta_verify_entity — verify a specific entity and return trust level with proof
 - teta_verify_endpoint — verify that a domain/endpoint belongs to a verified entity
-- teta_get_proof — retrieve cryptographic proof (C2PA + BTC timestamp) for an entity
+- teta_get_proof — retrieve cryptographic proof (C2PA + BTC timestamp) plus proof depth for an entity
+- teta_resolve_intent — TWIRA-ranked intent routing with full T/I/P breakdown; filters by entity type and minimum trust
+- teta_get_profile — full public profile with public blocks for a verified entity
+- teta_verify_claim — check whether a claim about an entity is supported by its verified content blocks
 
 ### Trust levels returned
 - registry_attested — entity confirmed in official registry

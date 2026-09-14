@@ -1,5 +1,7 @@
 # TETA+PI Landing
 
+[![Secret scan](https://github.com/teta-pi/landing/actions/workflows/secret-scan.yml/badge.svg)](https://github.com/teta-pi/landing/actions/workflows/secret-scan.yml) [![Deploy](https://github.com/teta-pi/landing/actions/workflows/deploy.yml/badge.svg)](https://github.com/teta-pi/landing/actions/workflows/deploy.yml)
+
 Static marketing site for **TETA+PI** — Trust Infrastructure for Digital
 Entities. Live at [`tetapi.dev`](https://tetapi.dev).
 

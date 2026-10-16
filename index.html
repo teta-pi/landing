@@ -34,7 +34,7 @@
 
 <style>
 html,body{margin:0;padding:0;background:linear-gradient(180deg,#EEF2FC 0%,#FBFAF4 45%,#EDF1FB 100%);background-attachment:fixed}
-body{-webkit-font-smoothing:antialiased;font-family:'Manrope','Trebuchet MS','Segoe UI',sans-serif;color:#1A1035;padding-top:var(--banner-h,40px);overflow-x:hidden}
+body{-webkit-font-smoothing:antialiased;font-family:'Manrope','Trebuchet MS','Segoe UI',sans-serif;color:#1A1035;overflow-x:hidden}
 *,*::before,*::after{box-sizing:border-box}
 ::selection{background:rgba(91,69,201,.20)}
 a{color:inherit;text-decoration:none}
@@ -48,7 +48,7 @@ a{color:inherit;text-decoration:none}
 @media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1!important;transform:none!important;transition:none!important}}
 
 /* Nav */
-.nav{position:sticky;top:calc(var(--banner-h,40px) + 18px);z-index:40;margin:18px auto 0;max-width:1120px;padding:0 20px}
+.nav{position:sticky;top:18px;z-index:40;margin:18px auto 0;max-width:1120px;padding:0 20px}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:11px 12px 11px 22px;border-radius:22px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);box-shadow:0 8px 30px rgba(45,55,120,.10),inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%)}
 .nav-logo{display:flex;align-items:baseline;gap:6px}
 .nav-logo .theta{font-size:21px;font-weight:600;color:#5B45C9;line-height:1;letter-spacing:-.5px}
@@ -63,7 +63,7 @@ a{color:inherit;text-decoration:none}
 .mobile-menu{display:none;position:fixed;inset:0;z-index:49;background:rgba(238,242,252,.97);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);flex-direction:column;align-items:center;justify-content:center;gap:34px}
 .mobile-menu.open{display:flex}
 .mobile-menu a{font-size:24px;font-weight:600;color:#1A1035}
-.mobile-menu .close-btn{position:absolute;top:calc(var(--banner-h,40px) + 24px);right:24px;font-size:28px;color:#1A1035;background:none;border:none;cursor:pointer;padding:8px}
+.mobile-menu .close-btn{position:absolute;top:24px;right:24px;font-size:28px;color:#1A1035;background:none;border:none;cursor:pointer;padding:8px}
 
 /* Section wrapper */
 .section{max-width:1120px;margin:0 auto;padding:56px 32px}
@@ -85,44 +85,38 @@ a{color:inherit;text-decoration:none}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .grid-dev{display:grid;grid-template-columns:1fr 1.1fr;gap:18px;align-items:stretch}
 .grid-tools{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.grid-res{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.grid-pub{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .grid-foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px}
 
 .grid-price{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:stretch}
 .grid-price-3{grid-template-columns:repeat(3,1fr)}
-.grid-evo{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:stretch}
 .price-card{display:flex;flex-direction:column;padding:26px 22px;border-radius:18px}
 .price-feat{display:flex;align-items:baseline;gap:8px;font-size:13px;color:#4A3F6B;line-height:1.5}
 .price-feat span:first-child{color:#5B45C9;font-weight:700}
+.code-dark{border-radius:18px;overflow:hidden;background:rgba(26,16,53,.92);border:1px solid rgba(255,255,255,.12);box-shadow:0 18px 50px rgba(45,55,120,.30)}
+.code-dark .code-head{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
+.code-dark pre{margin:0;padding:20px 22px;font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:13px;line-height:1.7;color:#C9B8E8;white-space:pre-wrap;word-break:break-word}
 @media(max-width:900px){
   .grid-4{grid-template-columns:repeat(2,1fr)}
   .grid-dev{grid-template-columns:1fr}
   .grid-tools{grid-template-columns:1fr}
-  .grid-res{grid-template-columns:repeat(2,1fr)}
   .grid-price{grid-template-columns:repeat(2,1fr)}
-  .grid-evo{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:640px){
   .nav-links{display:none}
   .nav-hamburger{display:flex}
   .float-card{display:none}
-  .grid-3,.grid-2,.grid-res{grid-template-columns:1fr}
-  .grid-pub{grid-template-columns:1fr}
+  .grid-3,.grid-2{grid-template-columns:1fr}
   .grid-foot{grid-template-columns:1fr 1fr}
   .grid-price{grid-template-columns:1fr}
-  .grid-evo{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-<div id="uc-banner" style="position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 16px;background:#FFD60A;color:#1A1035;font-size:13px;font-weight:700;letter-spacing:.02em;text-align:center">🚧 Project under construction — we are building in public. Features ship daily.</div>
-<script>(function(){var b=document.getElementById('uc-banner');function fit(){document.documentElement.style.setProperty('--banner-h',b.offsetHeight+'px')}fit();window.addEventListener('resize',fit)})()</script>
 
 <!-- colour washes -->
 <div style="position:fixed;top:-140px;left:-130px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(91,69,201,.26),transparent 68%);filter:blur(32px);animation:floatA 26s ease-in-out infinite;pointer-events:none;z-index:0"></div>
 <div style="position:fixed;bottom:-180px;right:-160px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(245,154,46,.22),transparent 68%);filter:blur(36px);animation:floatB 30s ease-in-out infinite;pointer-events:none;z-index:0"></div>
-<div style="position:absolute;top:2600px;left:-110px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(91,69,201,.18),transparent 68%);filter:blur(32px);animation:floatC 28s ease-in-out infinite;pointer-events:none;z-index:0"></div>
+<div style="position:absolute;top:2000px;left:-110px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(91,69,201,.18),transparent 68%);filter:blur(32px);animation:floatC 28s ease-in-out infinite;pointer-events:none;z-index:0"></div>
 
 <div style="position:relative;z-index:1">
 
@@ -157,8 +151,8 @@ a{color:inherit;text-decoration:none}
   <a href="https://app.tetapi.dev/claim" style="font-size:16px;font-weight:600;color:#fff;background:linear-gradient(180deg,#6E58D6,#5B45C9);padding:14px 30px;border-radius:16px">Start →</a>
 </div>
 
-<!-- ======== HERO ======== -->
-<section class="section" style="padding-top:100px;padding-bottom:100px;position:relative">
+<!-- ======== 1 · HERO ======== -->
+<section class="section" style="padding-top:80px;padding-bottom:70px;position:relative">
   <div style="text-align:center;max-width:760px;margin:0 auto;position:relative;z-index:2">
     <div style="display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:18px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);box-shadow:0 4px 16px rgba(45,55,120,.08),inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);margin-bottom:30px">
       <span style="width:7px;height:7px;border-radius:50%;background:#5B45C9;box-shadow:0 0 0 3px rgba(91,69,201,.18)"></span>
@@ -204,7 +198,7 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
-<!-- ======== PROBLEM ======== -->
+<!-- ======== 2 · PROBLEM ======== -->
 <section class="section">
   <div data-reveal style="text-align:center;margin-bottom:44px">
     <div class="eyebrow">The problem</div>
@@ -255,250 +249,124 @@ a{color:inherit;text-decoration:none}
   <div data-reveal style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px"><a href="https://arxiv.org/search/?searchtype=all&amp;query=agent+osi+reference+architecture" target="_blank" rel="noopener" style="color:#9088B0">arXiv:2502 · Agent-OSI · February 2026 ↗</a></div>
 </section>
 
-<!-- ======== FOR EVERYONE ======== -->
-<section class="section" id="who">
-  <div data-reveal style="text-align:center;margin-bottom:44px">
-    <div class="eyebrow">For everyone</div>
-    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.12;margin:0;text-wrap:balance">Whoever you are. Prove it. Be found.</h2>
-  </div>
-  <div class="grid-3">
-    <div data-reveal class="glass" style="padding:30px 28px;border-top:3px solid #5B45C9">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#5B45C9;margin-bottom:14px">Businesses</div>
-      <div style="font-size:21px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px">Be found first</div>
-      <div style="font-size:14.5px;color:#5A4F78;line-height:1.55">Registry verified. When an agent searches for what you do — it finds you first.</div>
-    </div>
-    <div data-reveal class="glass" style="padding:30px 28px;border-top:3px solid #5B45C9">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#5B45C9;margin-bottom:14px">Journalists &amp; Media</div>
-      <div style="font-size:21px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px">Your byline, proven</div>
-      <div style="font-size:14.5px;color:#5A4F78;line-height:1.55">Verified identity and byline. Your work is provably yours — signed and timestamped.</div>
-    </div>
-    <div data-reveal class="glass" style="padding:30px 28px;border-top:3px solid #F59A2E">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#F59A2E;margin-bottom:14px">Artists &amp; Creators</div>
-      <div style="font-size:21px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px">Human-made, proven</div>
-      <div style="font-size:14.5px;color:#5A4F78;line-height:1.55">C2PA-signed work. Prove it's human-made, not AI-generated. Verifiable at any point in time.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ======== ENTITY TYPES GRID ======== -->
-<section class="section" id="entities">
-  <div data-reveal style="text-align:center;margin-bottom:44px">
-    <div class="eyebrow">Entity types</div>
-    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.12;margin:0 auto 14px;max-width:680px;text-wrap:balance">One registry. Every kind of digital entity.</h2>
-    <p style="font-size:clamp(16px,2vw,19px);color:#5A4F78;max-width:600px;margin:0 auto;line-height:1.55">AI agents are the first class of entity that urgently needs verified identity — they are not the last.</p>
-  </div>
-  <div class="grid-4" style="gap:12px">
-    <div data-reveal style="display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:14px;background:#EDE8F7;border:1px solid #E2DCF0"><span style="font-size:18px">👤</span><span style="font-size:14.5px;font-weight:600;color:#3A2C5C">People</span></div>
-    <div data-reveal style="display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:14px;background:#EDE8F7;border:1px solid #E2DCF0"><span style="font-size:18px">🏢</span><span style="font-size:14.5px;font-weight:600;color:#3A2C5C">Companies</span></div>
-    <div data-reveal style="display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:14px;background:#EDE8F7;border:1px solid #E2DCF0"><span style="font-size:18px">🏷️</span><span style="font-size:14.5px;font-weight:600;color:#3A2C5C">Brands</span></div>
-    <div data-reveal style="display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:14px;background:#EDE8F7;border:1px solid #E2DCF0"><span style="font-size:18px">🌐</span><span style="font-size:14.5px;font-weight:600;color:#3A2C5C">Domains</span></div>
-    <div data-reveal style="display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:14px;background:#EDE8F7;border:1px solid #E2DCF0"><span style="font-size:18px">🖥️</span><span style="font-size:14.5px;font-weight:600;color:#3A2C5C">Websites</span></div>
-    <div data-reveal style="display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:14px;background:#EDE8F7;border:1px solid #E2DCF0"><span style="font-size:18px">🔌</span><span style="font-size:14.5px;font-weight:600;color:#3A2C5C">APIs</span></div>
-    <div data-reveal style="display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:14px;background:#EDE8F7;border:1px solid #E2DCF0"><span style="font-size:18px">🧠</span><span style="font-size:14.5px;font-weight:600;color:#3A2C5C">AI Models</span></div>
-    <div data-reveal style="display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:14px;background:#EDE8F7;border:1px solid #E2DCF0"><span style="font-size:18px">🔗</span><span style="font-size:14.5px;font-weight:600;color:#3A2C5C">MCP Servers</span></div>
-    <div data-reveal style="display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:14px;background:#EDE8F7;border:1px solid #E2DCF0"><span style="font-size:18px">📦</span><span style="font-size:14.5px;font-weight:600;color:#3A2C5C">Software</span></div>
-    <div data-reveal style="display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:14px;background:#EDE8F7;border:1px solid #E2DCF0"><span style="font-size:18px">📂</span><span style="font-size:14.5px;font-weight:600;color:#3A2C5C">Repositories</span></div>
-    <div data-reveal title="The first urgent class — not the only one." style="display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:14px;background:#EDE8F7;border:1.5px solid #F59A2E;box-shadow:0 4px 14px rgba(245,154,46,.16)"><span style="font-size:18px">🤖</span><span style="font-size:14.5px;font-weight:600;color:#3A2C5C">AI Agents</span></div>
-    <div data-reveal title="The first urgent class — not the only one." style="display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:14px;background:#EDE8F7;border:1.5px solid #F59A2E;box-shadow:0 4px 14px rgba(245,154,46,.16)"><span style="font-size:18px">⚙️</span><span style="font-size:14.5px;font-weight:600;color:#3A2C5C">Autonomous Entities</span></div>
-  </div>
-</section>
-
-<!-- ======== HOW IT WORKS ======== -->
-<section class="section">
-  <div data-reveal style="text-align:center;margin-bottom:44px">
-    <div class="eyebrow">How it works</div>
-    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.12;margin:0 auto;max-width:680px;text-wrap:balance">Create a page. Add blocks. TETA+PI does the rest.</h2>
-  </div>
-  <div class="grid-3" style="margin-bottom:18px">
-    <div data-reveal class="glass" style="padding:30px 28px">
-      <div style="width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;background:linear-gradient(180deg,#6E58D6,#5B45C9);box-shadow:0 6px 18px rgba(91,69,201,.3),inset 0 1px 0 rgba(255,255,255,.3)">1</div>
-      <div style="font-size:20px;font-weight:600;letter-spacing:-.02em;margin:20px 0 10px">Create your verified profile</div>
-      <div style="font-size:14.5px;color:#5A4F78;line-height:1.55">Tell us who you are — business, journalist, artist. Prove it by registry match, business email, or domain ownership — document upload is coming soon.</div>
-    </div>
-    <div data-reveal class="glass" style="padding:30px 28px">
-      <div style="width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;background:linear-gradient(180deg,#6E58D6,#5B45C9);box-shadow:0 6px 18px rgba(91,69,201,.3),inset 0 1px 0 rgba(255,255,255,.3)">2</div>
-      <div style="font-size:20px;font-weight:600;letter-spacing:-.02em;margin:20px 0 10px">Add your blocks</div>
-      <div style="font-size:14.5px;color:#5A4F78;line-height:1.55">Content, documents, video — signed with C2PA and anchored on Bitcoin. No forms. No categories.</div>
-    </div>
-    <div data-reveal class="glass" style="padding:30px 28px">
-      <div style="width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;background:linear-gradient(180deg,#6E58D6,#5B45C9);box-shadow:0 6px 18px rgba(91,69,201,.3),inset 0 1px 0 rgba(255,255,255,.3)">3</div>
-      <div style="font-size:20px;font-weight:600;letter-spacing:-.02em;margin:20px 0 10px">Get found by agents</div>
-      <div style="font-size:14.5px;color:#5A4F78;line-height:1.55">Your profile becomes an endpoint. Agents route to you based on what people need.</div>
-    </div>
-  </div>
-  <div data-reveal style="padding:26px 30px;border-radius:18px;border-left:3px solid #F59A2E;background:rgba(245,154,46,.08)">
-    <p style="font-size:20px;font-weight:600;color:#1A1035;margin:0">No categories. No forms. No complexity.</p>
-    <p style="font-size:15.5px;color:#5A4F78;line-height:1.55;margin:10px 0 0;max-width:640px">A block can be anything: a video of your strawberry field, a quality certificate, a live kitchen stream via API.</p>
-  </div>
-</section>
-
-<!-- ======== VERIFICATION LEVELS ======== -->
-<section class="section">
-  <div data-reveal style="text-align:center;margin-bottom:44px">
-    <div class="eyebrow">Verification levels</div>
-    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.12;margin:0 auto;max-width:680px;text-wrap:balance">The more you prove, the more agents trust you.</h2>
-    <p style="font-size:15.5px;color:#5A4F78;max-width:640px;margin:14px auto 0;line-height:1.55">Reach registry attested via official registry match, business email control, or domain ownership. Document upload (registration certificate, license, tax ID) is coming soon.</p>
-  </div>
-  <div class="grid-3">
-    <div data-reveal class="glass" style="padding:30px 28px;border-left:3px solid #B8B2C8">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
-        <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:18px;color:#B8B2C8;letter-spacing:2px">●○○</span>
-        <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#9088B0">Level 1</span>
-      </div>
-      <div style="font-size:21px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px">Registry attested</div>
-      <div style="font-size:14.5px;color:#5A4F78;line-height:1.55">Cross-referenced with official registries. Entity exists and is registered.</div>
-    </div>
-    <div data-reveal class="glass" style="padding:30px 28px;border-left:3px solid #5B45C9">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
-        <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:18px;color:#5B45C9;letter-spacing:2px">●●○</span>
-        <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#9088B0">Level 2</span>
-      </div>
-      <div style="font-size:21px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px">Fully verified</div>
-      <div style="font-size:14.5px;color:#5A4F78;line-height:1.55">C2PA signed blocks + Bitcoin timestamp. Content is real and belongs to this entity.</div>
-    </div>
-    <div data-reveal style="padding:30px 28px;border-radius:18px;background:rgba(245,154,46,.07);border:1px solid rgba(255,255,255,.7);border-left:3px solid #F59A2E;box-shadow:0 14px 44px rgba(45,55,120,.10),inset 0 1px 0 rgba(255,255,255,.85);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%)">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
-        <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:18px;color:#F59A2E;letter-spacing:2px">●●◌</span>
-        <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#9088B0">Level 3</span>
-      </div>
-      <div style="font-size:21px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px">Live verified</div>
-      <div style="font-size:14.5px;color:#5A4F78;line-height:1.55">Active PI Camera stream. Continuous proof of existence and activity in real time.</div>
-    </div>
-  </div>
-  <p data-reveal style="font-size:13.5px;color:#9088B0;margin:24px 0 0;text-align:center;font-family:ui-monospace,'SF Mono','Menlo',monospace">◌ = ongoing process, not a finished state. The signal is live.</p>
-</section>
-
-<!-- ======== PROVE THE CLAIM ======== -->
-<section class="section" id="claims">
-  <div data-reveal style="text-align:center;margin-bottom:44px">
-    <div class="eyebrow">Beyond identity</div>
-    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.14;margin:0 auto 14px;max-width:640px;text-wrap:balance">Prove the claim. Not just the identity.</h2>
-    <p style="font-size:clamp(16px,2vw,19px);color:#5A4F78;max-width:600px;margin:0 auto;line-height:1.55">We don't verify that a business exists. We verify that what it claims is actually true.</p>
-  </div>
-
-  <div class="grid-3" style="margin-bottom:18px">
-    <div data-reveal class="glass" style="padding:26px 24px">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:#5B45C9;margin-bottom:12px">Sushi chef</div>
-      <div style="font-size:16px;font-weight:600;letter-spacing:-.01em;color:#1A1035;line-height:1.4;margin-bottom:16px">"Traditional recipe, made fresh daily."</div>
-      <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px;color:#5A4F78;line-height:1.5">
-        <div>PI Camera films the actual preparation</div>
-        <div>C2PA + Bitcoin timestamp — real, not staged</div>
-        <div>AI checks: does the footage match the claim?</div>
-      </div>
-    </div>
-    <div data-reveal class="glass" style="padding:26px 24px">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:#5B45C9;margin-bottom:12px">Artist</div>
-      <div style="font-size:16px;font-weight:600;letter-spacing:-.01em;color:#1A1035;line-height:1.4;margin-bottom:16px">"This is my original painting."</div>
-      <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px;color:#5A4F78;line-height:1.5">
-        <div>PI Camera films the creative process</div>
-        <div>C2PA + Bitcoin timestamp — real, not staged</div>
-        <div>Linked to their verified profile</div>
-      </div>
-    </div>
-    <div data-reveal class="glass" style="padding:26px 24px">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:#F59A2E;margin-bottom:12px">Journalist</div>
-      <div style="font-size:16px;font-weight:600;letter-spacing:-.01em;color:#1A1035;line-height:1.4;margin-bottom:16px">"Real, unstaged footage."</div>
-      <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px;color:#5A4F78;line-height:1.5">
-        <div>PI Camera captures the footage live</div>
-        <div>C2PA + Bitcoin timestamp anchors the capture</div>
-        <div>Proves not staged, not AI-generated</div>
-      </div>
-    </div>
-  </div>
-
-  <div data-reveal class="glass" style="padding:32px 30px;margin-bottom:20px">
-    <div class="eyebrow" style="margin-bottom:20px;text-align:center">Two checks, one block</div>
-    <div class="grid-2">
-      <div style="display:flex;gap:14px;align-items:flex-start">
-        <div style="flex-shrink:0;width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;background:linear-gradient(180deg,#6E58D6,#5B45C9)">1</div>
-        <div>
-          <div style="font-size:15.5px;font-weight:600;color:#1A1035;margin-bottom:6px">Authenticity</div>
-          <div style="font-size:13.5px;color:#5A4F78;line-height:1.5">Not AI-generated, filmed now, by this profile — C2PA + Bitcoin timestamp.</div>
-        </div>
-      </div>
-      <div style="display:flex;gap:14px;align-items:flex-start">
-        <div style="flex-shrink:0;width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;background:linear-gradient(180deg,#F59A2E,#E8890F)">2</div>
-        <div>
-          <div style="font-size:15.5px;font-weight:600;color:#1A1035;margin-bottom:6px">Claim Match</div>
-          <div style="font-size:13.5px;color:#5A4F78;line-height:1.5">Does the footage support the claim text? AI-assisted — yes / no / partial.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div data-reveal style="text-align:center">
-    <p style="font-size:14.5px;color:#5A4F78;margin:0 0 8px">Works for anyone — no legal entity required. A freelancer proves quality exactly like a corporation.</p>
-    <p style="font-size:12.5px;color:#9088B0;margin:0">Claim matching is an AI-assisted signal, not a guarantee — every result includes a manual review and appeals path.</p>
-  </div>
-</section>
-
-<!-- ======== SEARCH ENTITIES ======== -->
-<section class="section">
-  <div data-reveal class="glass" style="padding:48px 44px;border-radius:22px;text-align:center">
-    <div class="eyebrow">Search entities</div>
-    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.12;margin:0 auto 14px;max-width:600px;text-wrap:balance">Find any verified entity in the registry.</h2>
-    <p style="font-size:17px;color:#5A4F78;line-height:1.55;max-width:580px;margin:0 auto 28px">Businesses, journalists, artists. If they're verified on TETA+PI, agents can find them — and so can you.</p>
-    <a href="https://app.tetapi.dev" style="display:inline-flex;align-items:center;height:48px;padding:0 26px;font-size:15px;font-weight:600;color:#fff;background:linear-gradient(180deg,#6E58D6,#5B45C9);border-radius:16px;box-shadow:0 8px 24px rgba(91,69,201,.3),inset 0 1px 0 rgba(255,255,255,.3)">Search →</a>
-    <div style="display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-top:26px">
-      <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;font-weight:500;color:#3A2C5C;padding:7px 14px;border-radius:14px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.8);box-shadow:inset 0 1px 0 rgba(255,255,255,.9)">entity:type:business</span>
-      <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;font-weight:500;color:#3A2C5C;padding:7px 14px;border-radius:14px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.8);box-shadow:inset 0 1px 0 rgba(255,255,255,.9)">entity:type:journalist</span>
-      <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;font-weight:500;color:#3A2C5C;padding:7px 14px;border-radius:14px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.8);box-shadow:inset 0 1px 0 rgba(255,255,255,.9)">entity:type:artist</span>
-      <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;font-weight:500;color:#3A2C5C;padding:7px 14px;border-radius:14px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.8);box-shadow:inset 0 1px 0 rgba(255,255,255,.9)">level:verified</span>
-    </div>
-  </div>
-</section>
-
-<!-- ======== TWIRA ======== -->
-<section class="section" id="twira">
+<!-- ======== 3 · THREE LAYERS OF TRUST ======== -->
+<section class="section" id="trust">
   <div data-reveal style="text-align:center;margin-bottom:40px">
-    <div class="eyebrow">The algorithm</div>
-    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.12;margin:0 auto;max-width:680px;text-wrap:balance">Ranking earned through trust. Not purchased through ads.</h2>
+    <div class="eyebrow">Three layers of trust</div>
+    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.14;margin:0 auto 16px;max-width:680px;text-wrap:balance">Registry. C2PA. Bitcoin. One protocol.</h2>
+    <p style="font-size:17px;color:#5A4F78;max-width:620px;margin:0 auto;line-height:1.55">Three independently checkable layers, accessed by AI agents via MCP — one call, three proofs.</p>
   </div>
-  <div data-reveal style="max-width:640px;margin:0 auto 20px;padding:36px 40px;border-radius:18px;background:#211640;box-shadow:0 20px 60px rgba(33,22,64,.4),inset 0 1px 0 rgba(255,255,255,.08);text-align:center">
-    <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:clamp(17px,2.6vw,24px);font-weight:600;color:#fff;letter-spacing:.5px">TWIRA(entity, query) = <span style="color:#9F8BEE">α·T</span> + <span style="color:#F59A2E">β·I</span> + <span style="color:#6FD3A8">γ·P</span></div>
+  <div class="grid-3" style="margin-bottom:36px">
+    <div data-reveal class="glass" style="padding:30px 28px">
+      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:#5B45C9;margin-bottom:14px">Layer 1 · Registry</div>
+      <div style="font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Who are they?</div>
+      <div style="font-size:14.5px;color:#5A4F78;line-height:1.6">We query official registries — Handelsregister, GLEIF, EU VAT, DE-ÖKO — and attest the result on-chain.</div>
+      <div style="margin-top:18px;font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;color:#5B45C9;background:rgba(91,69,201,.07);display:inline-block;padding:4px 10px;border-radius:8px">registry:attested</div>
+    </div>
+    <div data-reveal class="glass" style="padding:30px 28px">
+      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:#5B45C9;margin-bottom:14px">Layer 2 · C2PA</div>
+      <div style="font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Did they create this?</div>
+      <div style="font-size:14.5px;color:#5A4F78;line-height:1.6">Verified entities sign content with a cryptographic key. Any C2PA-aware tool verifies it — without asking us.</div>
+      <div style="margin-top:18px;font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;color:#5B45C9;background:rgba(91,69,201,.07);display:inline-block;padding:4px 10px;border-radius:8px">c2pa:verified</div>
+    </div>
+    <div data-reveal class="glass" style="padding:30px 28px">
+      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:#5B45C9;margin-bottom:14px">Layer 3 · Bitcoin</div>
+      <div style="font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px">When was this proven?</div>
+      <div style="font-size:14.5px;color:#5A4F78;line-height:1.6">Each verification record is hashed and anchored to the Bitcoin blockchain — permanent, independent of our servers.</div>
+      <div style="margin-top:18px;font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;color:#5B45C9;background:rgba(91,69,201,.07);display:inline-block;padding:4px 10px;border-radius:8px">btc:anchored</div>
+    </div>
   </div>
-  <div class="grid-3" style="margin-bottom:24px">
-    <div data-reveal class="glass" style="padding:28px 26px">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:22px;font-weight:700;color:#9F8BEE;margin-bottom:12px">T</div>
-      <div style="font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px">Trust Score</div>
-      <div style="font-size:14px;color:#5A4F78;line-height:1.55">Verification level × recency × source weight. Registry attestation counts more than self-declaration.</div>
+
+  <div data-reveal class="glass" style="padding:36px 32px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:22px">
+      <div>
+        <div style="font-size:19px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px">Create a page. Add blocks. One registry for every entity.</div>
+        <div style="font-size:14px;color:#5A4F78;line-height:1.55;max-width:520px">Prove it by registry match, business email, or domain ownership. Add blocks — content, documents, video — signed with C2PA and anchored on Bitcoin. No forms, no categories. Your profile becomes an endpoint agents route to.</div>
+      </div>
     </div>
-    <div data-reveal class="glass" style="padding:28px 26px">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:22px;font-weight:700;color:#F59A2E;margin-bottom:12px">I</div>
-      <div style="font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px">Intent Alignment</div>
-      <div style="font-size:14px;color:#5A4F78;line-height:1.55">Semantic match between the agent's query and your blocks. C2PA-signed blocks weighted higher.</div>
-    </div>
-    <div data-reveal class="glass" style="padding:28px 26px">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:22px;font-weight:700;color:#3FA97C;margin-bottom:12px">P</div>
-      <div style="font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px">Provenance</div>
-      <div style="font-size:14px;color:#5A4F78;line-height:1.55">Bitcoin timestamp depth + C2PA chain + endpoint uptime. History cannot be bought — only accumulated.</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <span style="font-size:13px;padding:7px 13px;border-radius:12px;background:#EDE8F7;color:#3A2C5C;font-weight:600">👤 People</span>
+      <span style="font-size:13px;padding:7px 13px;border-radius:12px;background:#EDE8F7;color:#3A2C5C;font-weight:600">🏢 Companies</span>
+      <span style="font-size:13px;padding:7px 13px;border-radius:12px;background:#EDE8F7;color:#3A2C5C;font-weight:600">🌐 Domains &amp; APIs</span>
+      <span style="font-size:13px;padding:7px 13px;border-radius:12px;background:#EDE8F7;color:#3A2C5C;font-weight:600">🧠 AI Models</span>
+      <span style="font-size:13px;padding:7px 13px;border-radius:12px;background:#EDE8F7;color:#3A2C5C;font-weight:600">🔗 MCP Servers</span>
+      <span title="The first urgent class — not the only one." style="font-size:13px;padding:7px 13px;border-radius:12px;background:#EDE8F7;color:#3A2C5C;font-weight:600;border:1px solid #F59A2E">🤖 AI Agents</span>
     </div>
   </div>
-  <div data-reveal style="text-align:center;font-size:13px;color:#9088B0;line-height:1.6">Co-invented with our CTO. arXiv paper in preparation.<br>The formula is public. The registry data behind it is not.</div>
 </section>
 
-<!-- ======== FOR DEVELOPERS ======== -->
+<!-- ======== 4 · TRY IT NOW ======== -->
+<section class="section" id="try-it">
+  <div data-reveal style="text-align:center;margin-bottom:36px">
+    <div class="eyebrow">Try it now</div>
+    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.14;margin:0 auto 14px;max-width:620px;text-wrap:balance">This isn't a claim. Check it yourself.</h2>
+    <p style="font-size:16px;color:#5A4F78;max-width:560px;margin:0 auto;line-height:1.55">A real profile, a real Bitcoin anchor, a real MCP endpoint — no sign-up required to verify any of it.</p>
+  </div>
+
+  <div class="grid-3" style="margin-bottom:20px">
+    <a href="https://app.tetapi.dev/e/tetakta" target="_blank" rel="noopener" data-reveal class="glass" style="display:block;padding:26px 24px">
+      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:#5B45C9;margin-bottom:12px">Live profile</div>
+      <div style="font-size:16px;font-weight:600;color:#1A1035;line-height:1.4;margin-bottom:8px">app.tetapi.dev/e/tetakta</div>
+      <div style="font-size:13.5px;color:#5A4F78;line-height:1.5">A real verified entity page — open it, it's public. <span style="color:#5B45C9;font-weight:600">View →</span></div>
+    </a>
+    <a href="https://mempool.space/block/971703" target="_blank" rel="noopener" data-reveal class="glass" style="display:block;padding:26px 24px">
+      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:#5B45C9;margin-bottom:12px">Bitcoin anchor</div>
+      <div style="font-size:16px;font-weight:600;color:#1A1035;line-height:1.4;margin-bottom:8px">Block 971,703</div>
+      <div style="font-size:13.5px;color:#5A4F78;line-height:1.5">One of this profile's verification records, timestamped on Bitcoin. <span style="color:#5B45C9;font-weight:600">Verify on a public explorer →</span></div>
+    </a>
+    <div data-reveal class="glass" style="padding:26px 24px">
+      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:#5B45C9;margin-bottom:12px">MCP endpoint</div>
+      <div style="font-size:16px;font-weight:600;color:#1A1035;line-height:1.4;margin-bottom:8px">mcp.tetapi.dev</div>
+      <div style="font-size:13.5px;color:#5A4F78;line-height:1.5">7 tools live, no API key needed. Connect below.</div>
+    </div>
+  </div>
+
+  <div data-reveal class="code-dark" style="max-width:640px;margin:0 auto">
+    <div class="code-head">
+      <span style="width:11px;height:11px;border-radius:50%;background:#FF5F57"></span>
+      <span style="width:11px;height:11px;border-radius:50%;background:#FEBC2E"></span>
+      <span style="width:11px;height:11px;border-radius:50%;background:#28C840"></span>
+      <span style="margin-left:8px;font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;color:#9088B0">terminal</span>
+    </div>
+    <pre>claude mcp add --transport http teta-pi https://mcp.tetapi.dev/mcp</pre>
+  </div>
+  <p data-reveal style="text-align:center;font-size:12.5px;color:#9088B0;margin:14px 0 0">No auth, no setup — every tool call hits the live registry.</p>
+
+  <!-- TODO(10.9): live search box against GET /api/v1/search belongs here once the
+       GTM top-500 batch has created the 455 pre-verified entities (prod has only 36
+       today — a live query against that would return a thin, unconvincing result
+       set) AND api 1.33 ships real rate limiting (S-10 is still open; this box would
+       otherwise be the first unauthenticated, unprotected write-adjacent surface on
+       landing traffic). See docs/changelog.md 2026-10-16 (10.9) for the full reasoning.
+       Drop the live search UI into #live-search-slot below — do not re-add the static
+       cards above, they stay as the always-works fallback. -->
+  <div id="live-search-slot" hidden></div>
+</section>
+
+<!-- ======== 5 · FOR AGENTS & DEVELOPERS ======== -->
 <section class="section" id="developers">
-  <div data-reveal style="text-align:center;margin-bottom:44px">
-    <div class="eyebrow">For developers &amp; agents</div>
+  <div data-reveal style="text-align:center;margin-bottom:40px">
+    <div class="eyebrow">For agents &amp; developers</div>
     <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.12;margin:0;text-wrap:balance">Your agent already knows how to connect.</h2>
   </div>
   <div class="grid-dev" style="margin-bottom:18px">
     <div data-reveal class="glass" style="padding:32px;display:flex;flex-direction:column;justify-content:center">
       <p style="font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0 0 14px">Connect TETA+PI MCP to any agent in one line.</p>
-      <p style="font-size:16px;color:#5A4F78;line-height:1.6;margin:0">Claude, GPT, custom — any MCP-compatible agent works.</p>
+      <p style="font-size:16px;color:#5A4F78;line-height:1.6;margin:0">Claude, GPT, custom — any MCP-compatible agent works. No API key for the read-only tools.</p>
     </div>
-    <div data-reveal style="border-radius:18px;overflow:hidden;background:rgba(26,16,53,.92);border:1px solid rgba(255,255,255,.12);box-shadow:0 18px 50px rgba(45,55,120,.30)">
-      <div style="display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08)">
+    <div data-reveal class="code-dark">
+      <div class="code-head">
         <span style="width:11px;height:11px;border-radius:50%;background:#FF5F57"></span>
         <span style="width:11px;height:11px;border-radius:50%;background:#FEBC2E"></span>
         <span style="width:11px;height:11px;border-radius:50%;background:#28C840"></span>
-        <span style="margin-left:8px;font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;color:#9088B0">agent.config.yaml</span>
+        <span style="margin-left:8px;font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;color:#9088B0">claude_desktop_config.json</span>
       </div>
-      <pre style="margin:0;padding:22px 24px;font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:13px;line-height:1.75;color:#C9B8E8"><span style="color:#9088B0">mcp_servers:</span>
-  <span style="color:#9088B0">- name:</span> <span style="color:#F59A2E">teta-pi</span>
-    <span style="color:#9088B0">url:</span> <span style="color:#fff">https://mcp.tetapi.dev/sse</span>
-    <span style="color:#9088B0">auth:</span> <span style="color:#F59A2E">Bearer</span></pre>
+      <pre><span style="color:#9088B0">"mcpServers"</span>: {
+  <span style="color:#9088B0">"teta-pi"</span>: {
+    <span style="color:#9088B0">"type"</span>: <span style="color:#F59A2E">"http"</span>,
+    <span style="color:#9088B0">"url"</span>:  <span style="color:#fff">"https://mcp.tetapi.dev/mcp"</span>
+  }
+}</pre>
     </div>
   </div>
   <div class="grid-tools" style="margin-bottom:24px">
@@ -519,44 +387,16 @@ a{color:inherit;text-decoration:none}
       <div style="font-size:12.5px;color:#9088B0;margin-top:7px;line-height:1.45">Return raw cryptographic proof — C2PA manifest + Bitcoin anchor.</div>
     </div>
   </div>
-  <p data-reveal style="font-size:15px;color:#5A4F78;line-height:1.6;margin:0 0 18px;max-width:680px"><span style="font-weight:600;color:#1A1035">Open protocol. Open-source library. MIT license.</span> Fork it. Build on it. The Root CA stays with TETA+PI.</p>
+  <p data-reveal style="font-size:15px;color:#5A4F78;line-height:1.6;margin:0 0 18px;max-width:680px">Open-source library. MIT license. No CMS? One script tag makes any static site agent-readable too.</p>
   <div data-reveal style="display:flex;gap:26px;flex-wrap:wrap">
-    <a href="#protocol" style="font-size:14.5px;font-weight:600;color:#5B45C9">Full developer docs →</a>
+    <a href="https://tetapi.dev/developers.html" style="font-size:14.5px;font-weight:600;color:#5B45C9">Full developer docs →</a>
+    <a href="https://tetapi.dev/generate.html" style="font-size:14.5px;font-weight:600;color:#5B45C9">Get your Universal Tag →</a>
     <a href="https://github.com/teta-pi" target="_blank" rel="noopener" style="font-size:14.5px;font-weight:600;color:#5B45C9">GitHub →</a>
-    <a href="#developers" style="font-size:14.5px;font-weight:600;color:#5B45C9">API reference →</a>
+    <a href="https://api.tetapi.dev/docs" target="_blank" rel="noopener" style="font-size:14.5px;font-weight:600;color:#5B45C9">API reference →</a>
   </div>
 </section>
 
-<!-- ======== UNIVERSAL TAG ======== -->
-<section class="section" id="universal-tag">
-  <div data-reveal style="text-align:center;margin-bottom:36px">
-    <div class="eyebrow">No CMS? No problem</div>
-    <h2 style="font-size:clamp(24px,3.6vw,34px);font-weight:700;letter-spacing:-.025em;line-height:1.16;margin:0 auto 14px;max-width:600px;text-wrap:balance">One script tag. Two levels of agent-readability.</h2>
-    <p style="font-size:15.5px;color:#5A4F78;max-width:540px;margin:0 auto;line-height:1.55">For static pages and custom-coded sites that can't run a plugin.</p>
-  </div>
-  <div data-reveal style="border-radius:18px;overflow:hidden;background:rgba(26,16,53,.92);border:1px solid rgba(255,255,255,.12);box-shadow:0 18px 50px rgba(45,55,120,.30);margin:0 auto 20px;max-width:600px">
-    <div style="display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08)">
-      <span style="width:11px;height:11px;border-radius:50%;background:#FF5F57"></span>
-      <span style="width:11px;height:11px;border-radius:50%;background:#FEBC2E"></span>
-      <span style="width:11px;height:11px;border-radius:50%;background:#28C840"></span>
-      <span style="margin-left:8px;font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;color:#9088B0">index.html</span>
-    </div>
-    <pre style="margin:0;padding:20px 22px;font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12.5px;line-height:1.7;color:#C9B8E8;white-space:pre-wrap;word-break:break-all"><span style="color:#9088B0">&lt;script</span> async <span style="color:#9088B0">src=</span><span style="color:#F59A2E">"https://tetapi.dev/tag.js"</span> <span style="color:#9088B0">data-entity=</span><span style="color:#fff">"YOUR_ENTITY_ID"</span><span style="color:#9088B0">&gt;&lt;/script&gt;</span></pre>
-  </div>
-  <div class="grid-pub" style="margin-bottom:16px">
-    <div data-reveal class="glass" style="padding:24px 26px">
-      <div class="eyebrow" style="margin-bottom:10px">Part A · script tag only</div>
-      <p style="font-size:14px;color:#4A3F6B;line-height:1.55;margin:0">Paste one line, zero config. Injects structured data for agents and crawlers that execute JS.</p>
-    </div>
-    <div data-reveal style="padding:24px 26px;border-radius:18px;background:rgba(245,154,46,.08);border:1px solid rgba(245,154,46,.25);box-shadow:0 12px 40px rgba(45,55,120,.10),inset 0 1px 0 rgba(255,255,255,.7);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%)">
-      <div class="eyebrow" style="margin-bottom:10px;color:#E8890F">Part B · + one DNS record</div>
-      <p style="font-size:14px;color:#4A3F6B;line-height:1.55;margin:0">One CNAME/TXT record + a redirect rule at your host. Serves real <code style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12.5px">/.well-known</code> files from your domain root — works for every agent, not just JS-executing ones.</p>
-    </div>
-  </div>
-  <p data-reveal style="text-align:center;font-size:12.5px;color:#9088B0;margin:0">Part A alone is a partial signal — full agent-readability needs Part B.</p>
-</section>
-
-<!-- ======== PI CAMERA ======== -->
+<!-- ======== 6 · PI CAMERA ======== -->
 <section class="section" id="camera">
   <div data-reveal class="glass" style="padding:48px 44px;border-radius:22px">
     <div style="text-align:center;margin-bottom:38px">
@@ -582,107 +422,12 @@ a{color:inherit;text-decoration:none}
       </div>
     </div>
     <div style="text-align:center">
-      <a href="#camera" style="font-size:14.5px;font-weight:600;color:#F59A2E">Explore PI Camera →</a>
+      <a href="https://tetapi.dev/pi-camera.html" style="font-size:14.5px;font-weight:600;color:#F59A2E">Explore PI Camera →</a>
     </div>
   </div>
 </section>
 
-<!-- ======== OPEN PROTOCOL ======== -->
-<section class="section" id="protocol">
-  <div data-reveal style="text-align:center;margin-bottom:40px">
-    <div class="eyebrow">Open protocol</div>
-    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.12;margin:0 auto 16px;max-width:680px;text-wrap:balance">We are not building an app. We are building the standard.</h2>
-    <p style="font-size:17px;color:#5A4F78;max-width:620px;margin:0 auto;line-height:1.55">θ+π is a cryptographic trust protocol: registry verification + C2PA media signing + Bitcoin timestamping — accessed by AI agents via MCP.</p>
-  </div>
-  <div class="grid-3" style="margin-bottom:30px">
-    <div data-reveal class="glass" style="padding:30px 28px">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:#5B45C9;margin-bottom:14px">Layer 1 · Registry</div>
-      <div style="font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Who are they?</div>
-      <div style="font-size:14.5px;color:#5A4F78;line-height:1.6">We query official registries — Handelsregister, GLEIF, EU VAT, DE-ÖKO — and attest the result on-chain.</div>
-      <div style="margin-top:18px;font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;color:#5B45C9;background:rgba(91,69,201,.07);display:inline-block;padding:4px 10px;border-radius:8px">registry:attested</div>
-    </div>
-    <div data-reveal class="glass" style="padding:30px 28px">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:#5B45C9;margin-bottom:14px">Layer 2 · C2PA</div>
-      <div style="font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Did they create this?</div>
-      <div style="font-size:14.5px;color:#5A4F78;line-height:1.6">Verified entities sign their content with a cryptographic key. Any C2PA-aware tool verifies the signature — without asking us.</div>
-      <div style="margin-top:18px;font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;color:#5B45C9;background:rgba(91,69,201,.07);display:inline-block;padding:4px 10px;border-radius:8px">c2pa:verified</div>
-    </div>
-    <div data-reveal class="glass" style="padding:30px 28px">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:#5B45C9;margin-bottom:14px">Layer 3 · Bitcoin</div>
-      <div style="font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px">When was this proven?</div>
-      <div style="font-size:14.5px;color:#5A4F78;line-height:1.6">Each verification record is hashed and anchored to the Bitcoin blockchain — permanent, immutable, independent of our servers.</div>
-      <div style="margin-top:18px;font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;color:#5B45C9;background:rgba(91,69,201,.07);display:inline-block;padding:4px 10px;border-radius:8px">btc:anchored</div>
-    </div>
-  </div>
-  <div data-reveal style="text-align:center;font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:14px;font-weight:600;color:#5B45C9;letter-spacing:.5px;margin-bottom:30px">Accessed by AI agents via MCP — one call, three layers of proof.</div>
-  <div class="grid-pub" style="margin-bottom:16px">
-    <div data-reveal class="glass" style="padding:28px 30px">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#5B45C9;margin-bottom:18px">We publish — MIT</div>
-      <div style="display:flex;flex-direction:column;gap:11px">
-        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>Protocol specification</div>
-        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>Open-source library</div>
-        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>API standard</div>
-        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>Impressum format</div>
-      </div>
-    </div>
-    <div data-reveal style="padding:28px 30px;border-radius:18px;background:rgba(91,69,201,.08);border:1px solid rgba(91,69,201,.2);box-shadow:0 12px 40px rgba(45,55,120,.10),inset 0 1px 0 rgba(255,255,255,.7);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%)">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#5B45C9;margin-bottom:18px">We keep</div>
-      <div style="display:flex;flex-direction:column;gap:11px">
-        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>Root CA</div>
-        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>Delegated CA for Enterprise</div>
-        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>Verification precedent dataset</div>
-        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>C2PA signing authority</div>
-      </div>
-    </div>
-  </div>
-  <div class="grid-res">
-    <a href="#protocol" data-reveal class="glass" style="display:block;padding:20px 22px;border-radius:14px">
-      <div style="font-size:15px;font-weight:600;color:#1A1035;margin-bottom:5px">📄 Whitepaper</div>
-      <div style="font-size:12.5px;color:#9088B0;line-height:1.45">Protocol spec — C2PA · BTC · Registry · MCP</div>
-    </a>
-    <a href="https://github.com/teta-pi" target="_blank" rel="noopener" data-reveal class="glass" style="display:block;padding:20px 22px;border-radius:14px">
-      <div style="font-size:15px;font-weight:600;color:#1A1035;margin-bottom:5px">⎔ GitHub</div>
-      <div style="font-size:12.5px;color:#9088B0;line-height:1.45">Open-source library · MIT · reference impl.</div>
-    </a>
-    <a href="#protocol" data-reveal class="glass" style="display:block;padding:20px 22px;border-radius:14px">
-      <div style="font-size:15px;font-weight:600;color:#1A1035;margin-bottom:5px">⚡ Nostr</div>
-      <div style="font-size:12.5px;color:#9088B0;line-height:1.45">Protocol updates · censorship-resistant</div>
-    </a>
-  </div>
-</section>
-
-<!-- ======== ACADEMIC EVIDENCE ======== -->
-<section class="section">
-  <div data-reveal style="text-align:center;margin-bottom:40px">
-    <div class="eyebrow">Academic evidence</div>
-    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.14;margin:0 auto;max-width:680px;text-wrap:balance">The problem is formally identified. The solution does not yet exist.</h2>
-  </div>
-  <div style="display:flex;flex-direction:column;gap:12px">
-    <div data-reveal class="glass" style="padding:24px 28px;border-radius:16px">
-      <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:10px">
-        <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;color:#9088B0">arXiv:2502 · Feb 2026</span>
-        <a href="https://arxiv.org/search/?searchtype=all&amp;query=agent+osi+reference+architecture" target="_blank" rel="noopener" style="font-size:17px;font-weight:600;letter-spacing:-.02em;color:#1A1035">Agent-OSI Reference Architecture <span style="color:#5B45C9;font-weight:400">↗</span></a>
-      </div>
-      <p style="font-size:15.5px;font-style:italic;color:#5A4F78;line-height:1.55;margin:0;padding-left:16px;border-left:2px solid rgba(91,69,201,.3);max-width:720px">"Verifiable execution and provenance explicitly listed as an unsolved layer in the full agent stack."</p>
-    </div>
-    <div data-reveal class="glass" style="padding:24px 28px;border-radius:16px">
-      <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:10px">
-        <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;color:#9088B0">arXiv:2407 · Jul 2024</span>
-        <a href="https://arxiv.org/abs/2407.07061" target="_blank" rel="noopener" style="font-size:17px;font-weight:600;letter-spacing:-.02em;color:#1A1035">Internet of Agents <span style="color:#5B45C9;font-weight:400">↗</span></a>
-      </div>
-      <p style="font-size:15.5px;font-style:italic;color:#5A4F78;line-height:1.55;margin:0;padding-left:16px;border-left:2px solid rgba(91,69,201,.3);max-width:720px">"No universal agent identity system. Security varies wildly across protocols."</p>
-    </div>
-    <div data-reveal class="glass" style="padding:24px 28px;border-radius:16px">
-      <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:10px">
-        <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;color:#9088B0">arXiv:2503 · Mar 2026</span>
-        <a href="https://arxiv.org/search/?searchtype=all&amp;query=trust+autonomous+agent+networks+cryptographic" target="_blank" rel="noopener" style="font-size:17px;font-weight:600;letter-spacing:-.02em;color:#1A1035">Trust in Autonomous Agent Networks <span style="color:#5B45C9;font-weight:400">↗</span></a>
-      </div>
-      <p style="font-size:15.5px;font-style:italic;color:#5A4F78;line-height:1.55;margin:0;padding-left:16px;border-left:2px solid rgba(91,69,201,.3);max-width:720px">"Cryptographic provenance is prerequisite for agent commerce at scale."</p>
-    </div>
-  </div>
-</section>
-
-<!-- ======== PRICING ======== -->
+<!-- ======== 7 · PRICING ======== -->
 <section class="section" id="pricing">
   <div data-reveal style="text-align:center;margin-bottom:40px">
     <div class="eyebrow">Pricing</div>
@@ -726,37 +471,7 @@ a{color:inherit;text-decoration:none}
   <div data-reveal style="text-align:center;font-size:13.5px;color:#9088B0">Verification status is never for sale. Ranking by relevance, not payment.</div>
 </section>
 
-<!-- ======== PRODUCT EVOLUTION ======== -->
-<section class="section" id="evolution">
-  <div data-reveal style="text-align:center;margin-bottom:44px">
-    <div class="eyebrow">Product evolution</div>
-    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.14;margin:0 auto;max-width:680px;text-wrap:balance">The registry is the first product.<br>The infrastructure is the company.</h2>
-  </div>
-  <div class="grid-evo">
-    <div data-reveal style="position:relative;padding:24px 20px;border-radius:16px;background:linear-gradient(180deg,#6E58D6,#5B45C9);box-shadow:0 12px 34px rgba(91,69,201,.32),inset 0 1px 0 rgba(255,255,255,.3)">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:10px;font-weight:700;letter-spacing:1px;color:rgba(255,255,255,.75);margin-bottom:10px">01 · TODAY</div>
-      <div style="font-size:15.5px;font-weight:700;color:#fff;line-height:1.3">Entity Verification</div>
-    </div>
-    <div data-reveal style="padding:24px 20px;border-radius:16px;background:rgba(255,255,255,.4);border:1.5px solid rgba(91,69,201,.4)">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:10px;font-weight:700;letter-spacing:1px;color:#5B45C9;margin-bottom:10px">02 · NEXT</div>
-      <div style="font-size:15.5px;font-weight:700;color:#3A2C5C;line-height:1.3">Identity + Reputation</div>
-    </div>
-    <div data-reveal style="padding:24px 20px;border-radius:16px;background:rgba(255,255,255,.4);border:1.5px solid rgba(245,154,46,.5)">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:10px;font-weight:700;letter-spacing:1px;color:#E8890F;margin-bottom:10px">03 · NEXT</div>
-      <div style="font-size:15.5px;font-weight:700;color:#3A2C5C;line-height:1.3">Discovery</div>
-    </div>
-    <div data-reveal style="padding:24px 20px;border-radius:16px;background:rgba(255,255,255,.4);border:1.5px solid rgba(245,154,46,.5)">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:10px;font-weight:700;letter-spacing:1px;color:#E8890F;margin-bottom:10px">04 · HORIZON</div>
-      <div style="font-size:15.5px;font-weight:700;color:#3A2C5C;line-height:1.3">Agent Economy</div>
-    </div>
-    <div data-reveal style="padding:24px 20px;border-radius:16px;background:rgba(255,255,255,.4);border:1.5px solid rgba(26,16,53,.35)">
-      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:10px;font-weight:700;letter-spacing:1px;color:#1A1035;margin-bottom:10px">05 · HORIZON</div>
-      <div style="font-size:15.5px;font-weight:700;color:#3A2C5C;line-height:1.3">Autonomous Commerce</div>
-    </div>
-  </div>
-</section>
-
-<!-- ======== FINAL CTA ======== -->
+<!-- ======== 8 · FINAL CTA ======== -->
 <section class="section">
   <div data-reveal style="padding:60px 44px;border-radius:22px;text-align:center;background:linear-gradient(160deg,rgba(110,88,214,.94),rgba(91,69,201,.94));border:1px solid rgba(255,255,255,.25);box-shadow:0 24px 70px rgba(91,69,201,.34),inset 0 1px 0 rgba(255,255,255,.35)">
     <h2 style="font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.14;color:#fff;margin:0 auto 14px;max-width:660px;text-wrap:balance">Without verification — you don't exist in Agent Internet.</h2>
@@ -793,7 +508,7 @@ a{color:inherit;text-decoration:none}
       <div style="display:flex;flex-direction:column;gap:10px">
         <a href="https://tetapi.dev/for-businesses.html" style="font-size:14px;color:#4A3F6B">For Businesses</a>
         <a href="https://tetapi.dev/for-agents.html" style="font-size:14px;color:#4A3F6B">For Agents</a>
-        <a href="https://app.tetapi.dev/claim" style="font-size:14px;color:#4A3F6B">Start</a>
+        <a href="https://tetapi.dev/use-cases.html" style="font-size:14px;color:#4A3F6B">Journalists &amp; Artists</a>
         <a href="https://app.tetapi.dev" style="font-size:14px;color:#4A3F6B">Search entities</a>
       </div>
     </div>
@@ -816,6 +531,9 @@ a{color:inherit;text-decoration:none}
       <a href="https://api.tetapi.dev/docs" style="font-size:12.5px;color:#9088B0">API</a>
       <a href="https://app.tetapi.dev/settings" style="font-size:12.5px;color:#9088B0">Settings</a>
     </div>
+  </div>
+  <div style="text-align:center;padding-top:18px">
+    <a href="https://github.com/teta-pi" target="_blank" rel="noopener" style="font-size:12px;color:#9088B0">🔨 Building in public — shipping daily →</a>
   </div>
 </footer>
 

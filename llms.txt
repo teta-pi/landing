@@ -45,6 +45,9 @@ API docs: https://api.tetapi.dev/docs
 - /how-it-works.html — Technical explanation of the three-layer protocol
 - /registries.html — Full list of supported verification registries
 - /whitepaper.html — Whitepaper v1.1 (PDF): registry model, claims-based verification, TWIRA, Temporal Moat, roadmap, governance
+- /use-cases.html — Verification examples by entity type (sushi chef, artist, journalist)
+- /developers.html — MCP + REST API integration docs
+- /generate.html — Universal Tag generator for non-CMS sites
 - /privacy.html — GDPR privacy policy
 - /terms.html — Terms of service
 

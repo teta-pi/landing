@@ -168,6 +168,125 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
+<!-- TWIRA FORMULA -->
+<section class="section" style="padding-top:0">
+  <div style="text-align:center;margin-bottom:36px" data-reveal>
+    <div class="eyebrow">The ranking algorithm</div>
+    <h2 style="font-size:clamp(24px,3.2vw,34px);font-weight:700;letter-spacing:-.025em;margin:0 auto 14px;max-width:620px;line-height:1.15">TWIRA — ranking earned through trust, not purchased through ads.</h2>
+  </div>
+  <div data-reveal style="max-width:640px;margin:0 auto 20px;padding:36px 40px;border-radius:18px;background:#211640;box-shadow:0 20px 60px rgba(33,22,64,.4),inset 0 1px 0 rgba(255,255,255,.08);text-align:center">
+    <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:clamp(17px,2.6vw,24px);font-weight:600;color:#fff;letter-spacing:.5px">TWIRA(entity, query) = <span style="color:#9F8BEE">α·T</span> + <span style="color:#F59A2E">β·I</span> + <span style="color:#6FD3A8">γ·P</span></div>
+  </div>
+  <div class="grid-3" style="gap:20px">
+    <div data-reveal class="glass" style="padding:28px 26px">
+      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:22px;font-weight:700;color:#9F8BEE;margin-bottom:12px">T</div>
+      <div style="font-size:16px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px">Trust Score</div>
+      <div style="font-size:14px;color:#5A4F78;line-height:1.55">Verification level × recency × source weight. Registry attestation counts more than self-declaration.</div>
+    </div>
+    <div data-reveal class="glass" style="padding:28px 26px">
+      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:22px;font-weight:700;color:#F59A2E;margin-bottom:12px">I</div>
+      <div style="font-size:16px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px">Intent Alignment</div>
+      <div style="font-size:14px;color:#5A4F78;line-height:1.55">Semantic match between the agent's query and your blocks. C2PA-signed blocks weighted higher.</div>
+    </div>
+    <div data-reveal class="glass" style="padding:28px 26px">
+      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:22px;font-weight:700;color:#3FA97C;margin-bottom:12px">P</div>
+      <div style="font-size:16px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px">Provenance</div>
+      <div style="font-size:14px;color:#5A4F78;line-height:1.55">Bitcoin timestamp depth + C2PA chain + endpoint uptime. History cannot be bought — only accumulated.</div>
+    </div>
+  </div>
+  <div data-reveal style="text-align:center;font-size:13px;color:#9088B0;line-height:1.6;margin-top:20px">Co-invented with our CTO. arXiv paper in preparation.<br>The formula is public. The registry data behind it is not.</div>
+</section>
+
+<!-- PROTOCOL COMMITMENTS -->
+<section class="section">
+  <div style="text-align:center;margin-bottom:40px" data-reveal>
+    <div class="eyebrow">Open protocol</div>
+    <h2 style="font-size:clamp(24px,3.2vw,34px);font-weight:700;letter-spacing:-.025em;margin:0 auto;max-width:600px;line-height:1.15">We are not building an app. We are building the standard.</h2>
+  </div>
+  <div class="grid-2" data-reveal>
+    <div class="glass" style="padding:28px 30px">
+      <div class="eyebrow" style="margin-bottom:18px">We publish — MIT</div>
+      <div style="display:flex;flex-direction:column;gap:11px">
+        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>Protocol specification</div>
+        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>Open-source library</div>
+        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>API standard</div>
+        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>Impressum format</div>
+      </div>
+    </div>
+    <div style="padding:28px 30px;border-radius:18px;background:rgba(91,69,201,.08);border:1px solid rgba(91,69,201,.2)">
+      <div class="eyebrow" style="margin-bottom:18px">We keep</div>
+      <div style="display:flex;flex-direction:column;gap:11px">
+        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>Root CA</div>
+        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>Delegated CA for Enterprise <em style="color:#9088B0;font-style:normal;font-size:12px">— stated intention, not shipped</em></div>
+        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>Verification precedent dataset</div>
+        <div style="display:flex;align-items:baseline;gap:9px;font-size:15px;color:#4A3F6B"><span style="color:#5B45C9">·</span>C2PA signing authority</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP STAGES -->
+<section class="section">
+  <div style="text-align:center;margin-bottom:36px" data-reveal>
+    <div class="eyebrow">Roadmap</div>
+    <h2 style="font-size:clamp(24px,3.2vw,34px);font-weight:700;letter-spacing:-.025em;margin:0 auto;max-width:600px;line-height:1.15">The registry is the first product. The infrastructure is the company.</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px" data-reveal>
+    <div style="padding:22px 18px;border-radius:16px;background:linear-gradient(180deg,#6E58D6,#5B45C9)">
+      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:10px;font-weight:700;letter-spacing:1px;color:rgba(255,255,255,.75);margin-bottom:10px">01 · TODAY</div>
+      <div style="font-size:14.5px;font-weight:700;color:#fff;line-height:1.3">Entity Verification</div>
+    </div>
+    <div style="padding:22px 18px;border-radius:16px;background:rgba(91,69,201,.08);border:1.5px solid rgba(91,69,201,.3)">
+      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:10px;font-weight:700;letter-spacing:1px;color:#5B45C9;margin-bottom:10px">02 · NEXT</div>
+      <div style="font-size:14.5px;font-weight:700;color:#3A2C5C;line-height:1.3">Identity + Reputation</div>
+    </div>
+    <div style="padding:22px 18px;border-radius:16px;background:rgba(245,154,46,.08);border:1.5px solid rgba(245,154,46,.35)">
+      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:10px;font-weight:700;letter-spacing:1px;color:#E8890F;margin-bottom:10px">03 · NEXT</div>
+      <div style="font-size:14.5px;font-weight:700;color:#3A2C5C;line-height:1.3">Discovery</div>
+    </div>
+    <div style="padding:22px 18px;border-radius:16px;background:rgba(245,154,46,.08);border:1.5px solid rgba(245,154,46,.35)">
+      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:10px;font-weight:700;letter-spacing:1px;color:#E8890F;margin-bottom:10px">04 · HORIZON</div>
+      <div style="font-size:14.5px;font-weight:700;color:#3A2C5C;line-height:1.3">Agent Economy</div>
+    </div>
+    <div style="padding:22px 18px;border-radius:16px;background:rgba(26,16,53,.05);border:1.5px solid rgba(26,16,53,.2)">
+      <div style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:10px;font-weight:700;letter-spacing:1px;color:#1A1035;margin-bottom:10px">05 · HORIZON</div>
+      <div style="font-size:14.5px;font-weight:700;color:#3A2C5C;line-height:1.3">Autonomous Commerce</div>
+    </div>
+  </div>
+  <p data-reveal style="text-align:center;font-size:12.5px;color:#9088B0;margin:18px 0 0">Stages 02–05 are proposed direction, not shipped product.</p>
+</section>
+
+<!-- RELATED RESEARCH -->
+<section class="section">
+  <div style="text-align:center;margin-bottom:32px" data-reveal>
+    <div class="eyebrow">Related research</div>
+    <h2 style="font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:-.025em;margin:0 auto;max-width:620px;line-height:1.2">The problem is formally identified. The solution does not yet exist.</h2>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div data-reveal class="glass" style="padding:22px 26px;border-radius:16px">
+      <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:8px">
+        <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;color:#9088B0">arXiv:2502 · Feb 2026</span>
+        <a href="https://arxiv.org/search/?searchtype=all&amp;query=agent+osi+reference+architecture" target="_blank" rel="noopener" style="font-size:16px;font-weight:600;letter-spacing:-.02em;color:#1A1035">Agent-OSI Reference Architecture <span style="color:#5B45C9;font-weight:400">↗</span></a>
+      </div>
+      <p style="font-size:14.5px;font-style:italic;color:#5A4F78;line-height:1.55;margin:0;padding-left:16px;border-left:2px solid rgba(91,69,201,.3)">"Verifiable execution and provenance explicitly listed as an unsolved layer in the full agent stack."</p>
+    </div>
+    <div data-reveal class="glass" style="padding:22px 26px;border-radius:16px">
+      <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:8px">
+        <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;color:#9088B0">arXiv:2407 · Jul 2024</span>
+        <a href="https://arxiv.org/abs/2407.07061" target="_blank" rel="noopener" style="font-size:16px;font-weight:600;letter-spacing:-.02em;color:#1A1035">Internet of Agents <span style="color:#5B45C9;font-weight:400">↗</span></a>
+      </div>
+      <p style="font-size:14.5px;font-style:italic;color:#5A4F78;line-height:1.55;margin:0;padding-left:16px;border-left:2px solid rgba(91,69,201,.3)">"No universal agent identity system. Security varies wildly across protocols."</p>
+    </div>
+    <div data-reveal class="glass" style="padding:22px 26px;border-radius:16px">
+      <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:8px">
+        <span style="font-family:ui-monospace,'SF Mono','Menlo',monospace;font-size:12px;color:#9088B0">arXiv:2503 · Mar 2026</span>
+        <a href="https://arxiv.org/search/?searchtype=all&amp;query=trust+autonomous+agent+networks+cryptographic" target="_blank" rel="noopener" style="font-size:16px;font-weight:600;letter-spacing:-.02em;color:#1A1035">Trust in Autonomous Agent Networks <span style="color:#5B45C9;font-weight:400">↗</span></a>
+      </div>
+      <p style="font-size:14.5px;font-style:italic;color:#5A4F78;line-height:1.55;margin:0;padding-left:16px;border-left:2px solid rgba(91,69,201,.3)">"Cryptographic provenance is prerequisite for agent commerce at scale."</p>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="section" style="padding-top:0;padding-bottom:96px;text-align:center" data-reveal>
   <div class="glass" style="padding:56px 40px;max-width:640px;margin:0 auto">

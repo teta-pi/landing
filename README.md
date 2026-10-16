@@ -16,7 +16,8 @@ the site and the API.
 `privacy.html`, `terms.html`.
 
 ## Docs
-Canonical docs live in [`teta-pi/infra`](https://github.com/teta-pi/infra).
+Canonical docs live in `teta-pi/infra`, our internal infrastructure docs
+repo (private).
 
 ## License
 MIT © 2026 TETA+PI · tetapi.dev
